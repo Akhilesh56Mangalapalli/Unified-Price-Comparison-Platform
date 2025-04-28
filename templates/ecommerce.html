@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>E-commerce Price Comparison</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/mainpage.css') }}">
+    <!-- Include Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <img src="{{ url_for('static', filename='screenshots/clg_logo.png') }}" alt="College Logo" class="logo">
+
+    <h1>E-commerce Price Comparison</h1>
+    <div class="form-container">
+        <i class="fas fa-shopping-cart form-icon"></i>
+        <form method="POST">
+            <label for="product_name">Enter the name of the product:</label>
+            <input type="text" name="product_name" id="product_name">
+            <input type="submit" value="Search">
+        </form>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div id="loading" style="display: none; text-align: center; margin: 20px;">
+        <div class="spinner"></div>
+        <p>Loading...</p>
+    </div>
+
+    {% if request.method == 'POST' %}
+        {% if flipkart_price or amazon_price %}
+            <h2>Prices for {{ request.form.get("product_name") }}</h2>
+        {% endif %}
+        
+        {% if flipkart_price %}
+            <h3 class="center-content"><i class="fas fa-shopping-cart platform-icon"></i> Flipkart Prices:</h3>
+            <div class="scrollable-container">{{ flipkart_price | safe }}</div>
+        {% else %}
+            <p>No data found for Flipkart.</p>
+        {% endif %}
+
+        {% if amazon_price %}
+            <h3 class="center-content"><i class="fas fa-box platform-icon"></i> Amazon Prices:</h3>
+            <div class="scrollable-container">{{ amazon_price | safe }}</div>
+        {% else %}
+            <p>No data found for Amazon.</p>
+        {% endif %}
+
+        {% if not flipkart_price and not amazon_price %}
+            <p>No results found on any platform.</p>
+        {% endif %}
+    {% endif %}
+
+    <!-- Back to Home Button -->
+    <a href="{{ url_for('home') }}" class="back-button">Back to Home</a>
+
+    <!-- Dark Mode Toggle Button -->
+    <button id="darkModeToggle" style="position: fixed; top: 20px; right: 20px; padding: 10px; background-color: #18a006; color: #fff; border: none; border-radius: 5px; cursor: pointer;">
+        <i id="toggleIcon" class="fas fa-moon"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js"></script>
+    <script>
+        // Loading Spinner
+        document.querySelector('form').addEventListener('submit', function() {
+            document.getElementById('loading').style.display = 'block';
+        });
+
+        // Table Sorting
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('table.data').forEach(table => {
+                new Tablesort(table);
+            });
+        });
+
+        // Dark Mode Toggle with Text Change
+        // Dark Mode Toggle with Text Change and Persistence
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            document.getElementById('toggleIcon').classList.remove('fa-moon');
+            document.getElementById('toggleIcon').classList.add('fa-sun');
+        }
+
+        // Dark Mode Toggle with Icon Switch
+        const toggleButton = document.getElementById('darkModeToggle');
+        const toggleIcon = document.getElementById('toggleIcon');
+        toggleButton.addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+            // Switch icon based on mode
+            if (document.body.classList.contains('dark-mode')) {
+                toggleIcon.classList.remove('fa-moon');
+                toggleIcon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'dark'); // Save preference
+            } else {
+                toggleIcon.classList.remove('fa-sun');
+                toggleIcon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'light'); // Save preference
+            }
+        });
+    </script>
+</body>
+</html>

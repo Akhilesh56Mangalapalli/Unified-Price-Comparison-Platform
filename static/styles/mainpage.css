@@ -1,0 +1,495 @@
+/* style.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+body {
+  background: linear-gradient(135deg, #c3d1b5 0%, #e0e8d5 100%); /*Subtle gradient background*/
+  /* background: linear-gradient(135deg, #2b2b2b 0%, #4b4b4b 100%), url('https://www.transparenttextures.com/patterns/light-paper-fibers.png'); */
+  font-family: 'Poppins', sans-serif; /* Modern font */
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Ensure full height */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+h1, form, .center-content {
+  text-align: center;
+}
+
+.scrollable-container {
+  height: 400px; /* Fixed height for scrolling */
+  overflow-y: auto; /* Enable vertical scrolling */
+  border-radius: 10px; /* Rounded corners */
+  padding: 15px; /* More padding */
+  text-align: center;
+  background-color: #fff; /* White background */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Card-like shadow */
+  margin-bottom: 30px; /* More spacing between sections */
+  max-width: 1000px; /* Match logo width */
+  width: 100%; /* Responsive */
+}
+
+/* Table Styling */
+.data {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+}
+
+.data th, .data td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.data th {
+  background-color: #18a006; /* Green header */
+  color: #fff;
+  font-weight: 500;
+  position: sticky; /* Sticky header */
+  top: 0; /* Stick to top */
+  z-index: 1;
+}
+
+.data td {
+  color: #14181d;
+}
+
+.data tr:nth-child(even) {
+  background-color: #f9f9f9; /* Alternate row color */
+}
+
+.data tr:hover {
+  background-color: #e0e8d5; /* Hover effect */
+  cursor: pointer;
+}
+
+.logo{
+  display: block;
+  width: 1000px;
+  height: 80px;
+  /*margin: 0% auto;*/
+  margin: 0 auto 20px; /* Added margin-bottom for spacing */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  border: 1px solid #ddd; /* Light border */
+}
+
+/* Main Heading: "Unified Price Comparison Website" */
+h1 {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #2b2b2b, #4b4b4b);
+  -webkit-background-clip: text; /* Vendor prefix for older browsers */
+  background-clip: text; /* Standard property for modern browsers */
+  -webkit-text-fill-color: transparent; /* Vendor prefix for older browsers */
+  color: transparent; /* Standard fallback for modern browsers */
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+  margin-bottom: 40px;
+  letter-spacing: 1px;
+}
+form {
+  text-align: center;
+  margin: 30px 0;
+}
+
+input[type="text"] {
+  background-color: #f0f8ff; /* Softer aliceblue */
+  padding: 10px 15px; /* More padding */
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 25px; /* Rounded corners */
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05); /* Inner shadow */
+  width: 250px; /* Fixed width */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+input[type="text"]:focus {
+  border-color: #18a006; /* Green border on focus */
+  box-shadow: 0 0 8px rgba(24, 160, 6, 0.3); /* Glow effect */
+  outline: none;
+}
+
+input[type="submit"] {
+  padding: 10px 25px; /* More padding */
+  font-size: 1rem;
+  background-color: #18a006; /* Green button */
+  color: #fff;
+  border: none;
+  border-radius: 25px; /* Rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2); /* Shadow */
+}
+
+
+input[type="submit"]:hover {
+  background-color: #146b04; /* Darker green on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+}
+input[type="submit"]:active {
+  transform: translateY(0);
+}
+
+h1 {
+  position: relative;
+  padding-bottom: 10px;
+}
+h1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background-color: #18a006;
+  border-radius: 2px;
+}
+
+h2 {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #3c3d3c;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+  margin-top: 30px;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+}
+/* Section Headings: "Flipkart Prices:", "Amazon Prices:", "JioMart Prices:" */
+h3.center-content {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #14181d;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+} 
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #18a006; /* Green spinner */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+#loading p {
+  color: #3c3d3c;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+
+p {
+  text-align: center;
+  margin: 15px 0;
+  font-size: 1.1rem;
+  color: #666;
+  font-style: italic;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  0% {
+      opacity: 0;
+      transform: translateY(10px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+#resultContainer {
+  animation: fadeIn 1s ease;
+}
+
+/* Label: "Enter Product Name:" */
+label {
+  display: block;
+  margin-bottom: 15px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2b2b2b;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  letter-spacing: 0.5px;
+}
+.scrollable-container, h3.center-content, p {
+  animation: fadeIn 0.8s ease; /* Apply fade-in to sections */
+}
+
+/* Optional: Center the form and resultContainer */
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+body.dark-mode {
+  background: linear-gradient(135deg, #2b2b2b 0%, #4b4b4b 100%), url('https://www.transparenttextures.com/patterns/light-paper-fibers.png');
+  color: #fff;
+}
+body.dark-mode .scrollable-container {
+  background-color: #333;
+}
+body.dark-mode .data th {
+  background-color: #18a006; /* Keep green header */
+}
+body.dark-mode .data td {
+  color: #fff;
+}
+body.dark-mode .data tr:nth-child(even) {
+  background-color: #444;
+}
+body.dark-mode .data tr:hover {
+  background-color: #555;
+}
+body.dark-mode p {
+  color: #ccc;
+}
+body.dark-mode h1 {
+  background: linear-gradient(90deg, #ccc, #fff);
+  -webkit-background-clip: text; /* Vendor prefix for older browsers */
+  background-clip: text; /* Standard property for modern browsers */
+  -webkit-text-fill-color: transparent; /* Vendor prefix for older browsers */
+  color: transparent; /* Standard fallback for modern browsers */
+}
+body.dark-mode h2, body.dark-mode h3.center-content, body.dark-mode label {
+  color: #ccc;
+}
+
+/* Category Container for Home Page */
+.category-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 60px;
+  flex-wrap: wrap; /* Ensure boxes wrap on smaller screens */
+}
+
+.category-box {
+  background: linear-gradient(135deg, #f5f7fa 0%, #e0e8d5 100%); /* Subtle gradient */
+  border: 2px solid #18a006;
+  border-radius: 15px;
+  padding: 30px;
+  width: 300px;
+  text-align: center;
+  text-decoration: none;
+  color: #14181d;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease forwards;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e0e8d5 100%), url('https://www.transparenttextures.com/patterns/light-paper-fibers.png');
+}
+
+.category-box:hover {
+  transform: scale(1.05); /* Slight scale-up on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  border-color: #146b04; /* Darker green border on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2), 0 0 10px rgba(24, 160, 6, 0.5);
+}
+
+.category-box .category-icon {
+  font-size: 3rem; /* Large icon size */
+  color: #18a006; /* Green color for icons */
+  margin-bottom: 15px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.category-box:hover .category-icon {
+  color: #146b04; /* Darker green on hover */
+  transform: rotate(10deg); /* Slight rotation for a playful effect */
+}
+
+.category-box h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #3c3d3c;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.category-box p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  color: #666;
+  margin: 0;
+}
+
+.category-box:nth-child(1) {
+  border-color: #18a006; /* Green for E-commerce */
+}
+.category-box:nth-child(1) .category-icon {
+  color: #18a006;
+}
+.category-box:nth-child(2) {
+  border-color: #ff6f61; /* Coral for Groceries */
+}
+.category-box:nth-child(2) .category-icon {
+  color: #ff6f61;
+}
+.category-box:nth-child(1):hover {
+  border-color: #146b04;
+}
+.category-box:nth-child(1):hover .category-icon {
+  color: #146b04;
+}
+.category-box:nth-child(2):hover {
+  border-color: #e65a50;
+}
+.category-box:nth-child(2):hover .category-icon {
+  color: #e65a50;
+}
+
+/* Back to Home Button */
+.back-button {
+  display: block;
+  margin: 30px auto;
+  padding: 10px 20px;
+  background-color: #18a006;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  text-align: center;
+  max-width: 200px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  animation: fadeIn 1s ease forwards;
+}
+
+.back-button:hover {
+  background-color: #146b04;
+  transform: translateY(-2px);
+}
+body.dark-mode .back-button {
+  background-color: #18a006;
+}
+
+body.dark-mode .back-button:hover {
+  background-color: #146b04;
+}
+
+/* Add Animation to Headings and Results */
+h1, h2, h3.center-content, .scrollable-container {
+  animation: fadeIn 1s ease forwards;
+}
+
+/* Dark Mode Adjustments for Category Boxes */
+body.dark-mode .category-box {
+  background: linear-gradient(135deg, #333 0%, #4b4b4b 100%);
+  border-color: #18a006;
+}
+
+body.dark-mode .category-box h2 {
+  color: #ccc;
+}
+
+body.dark-mode .category-box p {
+  color: #999;
+}
+
+body.dark-mode .category-box .category-icon {
+  color: #18a006;
+}
+
+body.dark-mode .category-box:hover .category-icon {
+  color: #146b04;
+}
+
+/* Form Container Styling */
+.form-container {
+  background: linear-gradient(135deg, #f5f7fa 0%, #e0e8d5 100%);
+  border: 2px solid #18a006;
+  border-radius: 15px;
+  padding: 30px;
+  max-width: 500px;
+  margin: 30px auto;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease forwards;
+}
+
+.form-container .form-icon {
+  font-size: 3rem;
+  color: #18a006;
+  margin-bottom: 15px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.form-container:hover .form-icon {
+  color: #146b04;
+  transform: rotate(10deg);
+}
+
+body.dark-mode .form-container {
+  background: linear-gradient(135deg, #333 0%, #4b4b4b 100%);
+  border-color: #18a006;
+}
+
+body.dark-mode .form-container .form-icon {
+  color: #18a006;
+}
+
+body.dark-mode .form-container:hover .form-icon {
+  color: #146b04;
+}
+
+/* Platform Icons for Result Headings */
+.platform-icon {
+  font-size: 1.5rem;
+  color: #18a006;
+  margin-right: 10px;
+  transition: color 0.3s ease;
+}
+
+.center-content:hover .platform-icon {
+  color: #146b04;
+}
+
+body.dark-mode .platform-icon {
+  color: #18a006;
+}
+
+body.dark-mode .center-content:hover .platform-icon {
+  color: #146b04;
+}
+
+.form-container:focus-within {
+  animation: pulse 1s infinite;
+}
+@keyframes pulse {
+  0% { box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); }
+  50% { box-shadow: 0 4px 15px rgba(24, 160, 6, 0.3); }
+  100% { box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); }
+}
+
+#darkModeToggle {
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+#darkModeToggle:hover {
+  background-color: #146b04; /* Darker green on hover */
+  transform: scale(1.1); /* Slight scale-up effect */
+}
+
+#darkModeToggle:active {
+  transform: scale(1); /* Reset scale on click */
+}
+
+body.dark-mode #darkModeToggle {
+  background-color: #146b04; /* Darker green in dark mode */
+}
+body.dark-mode #darkModeToggle i {
+  color: #ffd700; /* Gold color for the sun icon in dark mode */
+}
